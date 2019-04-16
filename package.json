@@ -1,0 +1,9 @@
+{
+  "name": "napi-callback-thread",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "node-addon-api": "^1.6.3"
+  }
+}

@@ -1,0 +1,17 @@
+" Get node version
+let node_output = system('node -v')
+let node_version = substitute(node_output, '[v\n]', '', 'g')
+
+" Get nan headers path
+let s:path = expand('<sfile>:p:h')
+let nan_headers = s:path . '/node_modules/node-addon-api'
+
+" Get asio headers path
+let asio_headers = s:path . '/include'
+
+" Get node headers path
+let node_headers = $HOME . '/.node-gyp/' . node_version . '/include/node'
+
+" Set ale cpp flags
+let g:ale_cpp_gcc_options = '-std=c++14 -DASIO_STANDALONE -Wno-writable-strings -Wall -I ' . node_headers . ' -I ' . nan_headers . ' -I ' . asio_headers
+let g:ale_cpp_clang_options = '-std=c++14 -DASIO_STANDALONE -Wno-writable-strings -Wall -I ' . node_headers . ' -I ' . nan_headers . ' -I ' . asio_headers
